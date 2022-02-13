@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="port_terminal_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.port_terminal.form</field>
+            <field name="model">shipping_line.port_terminal</field>
+            <field name="arch" type="xml">
+                <form string="Port Terminals">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="ar_name"/>
+                            </group>
+                        </group>
+                            <group>
+                                <field name="rel_port"/>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="port_terminal_tree_view" model="ir.ui.view">
+            <field name="name">shipping_line.port_terminal.tree</field>
+            <field name="model">shipping_line.port_terminal</field>
+            <field name="arch" type="xml">
+                <tree string="Port Terminals">
+                    <field name="ar_name"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="port_terminal_search_view" model="ir.ui.view">
+            <field name="name">shipping_line.port_terminal.search</field>
+            <field name="model">shipping_line.port_terminal</field>
+            <field name="arch" type="xml">
+                <search string="Port Terminals">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="port_terminal_act_window" model="ir.actions.act_window">
+            <field name="name">Port Terminals</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.port_terminal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Port Terminals.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Port Terminals" id="port_terminal_menu" parent="shipping_line_master_categ" action="port_terminal_act_window"/>
+
+    </data>
+</odoo>

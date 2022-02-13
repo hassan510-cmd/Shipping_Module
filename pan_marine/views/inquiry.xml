@@ -1,0 +1,205 @@
+<odoo>
+    <data>
+        <!--        link css sheet-->
+        <template id="assets_backend1" name="pan_marine assets1" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/pan_marine/static/src/css/pan_marine_inquiry.css"/>
+            </xpath>
+        </template>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--       tree view       -->
+        <record id="pan_marine_inquiry_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine_inquiry_tree_view</field>
+            <field name="model">pan_marine.inquiry</field>
+            <field name="arch" type="xml">
+                <tree string="pan_marine_inquiry_tree">
+                    <field name="inquiry_number" string="Inquiry Number"/>
+                    <field name="call_type" string="Type of Call"/>
+                    <field name="vessel_name"/>
+                    <field name="ETA"/>
+                    <field name="ETD"/>
+                    <field name="customer" string="Customer"/>
+                    <field name="state"/>
+                    <field name="created_by"/>
+
+                </tree>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--       default module action       -->
+        <record id="inquiry_default_action" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.inquiry</field>
+            <field name="view_mode">form</field>
+
+            <field name="help" type="html">
+                <p>
+                    add new inquiry !
+                </p>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--    multi actions-->
+        <record id="inquiry_actions" model="ir.actions.act_window">
+            <field name="name">inquiries</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.inquiry</field>
+            <field name="view_mode">tree,form,kanban</field>
+
+            <field name="help" type="html">
+                <p>
+                    add new inquiry !
+                </p>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--form view-->
+        <record id="pan_marine_inquiry_view_form" model="ir.ui.view">
+            <field name="name">pan_marine_inquiry_view_form</field>
+            <field name="model">pan_marine.inquiry</field>
+            <field name="arch" type="xml">
+                <!--                        <sheet>-->
+                <form string="pan_marine_form" class="sheet">
+                    <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                    <!--                            header statusbar -->
+
+                    <header>
+                        <button class="btn btn-outline-success" string="Confirm inquiry"/>
+                        <button class="btn btn-outline-dark" string="Print invoice"/>
+                        <button class="btn btn-outline-danger" string="Cancel inquiry"/>
+                        <field name="state" widget="statusbar" options="{'clickable': '0'} "
+                               statusbar_visible="draft,sent,appointment,OC,FC"/>
+                    </header>
+                    <div class="main">
+                        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                        <!--                            row1-->
+
+                        <div class="row1">
+
+                            <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                            <!--                            row1-col1 -->
+                            <div class="row1-col1">
+
+                                <h1>
+                                    Section.1 Inquiry /
+                                    <span>
+                                        <field name="inquiry_number"/>
+                                    </span>
+                                </h1>
+                                <div>
+                                    <group>
+
+                                        <field name="customer" string="Customer"/>
+                                        <field name="attention"/>
+                                        <field name="address"/>
+                                        <field name="bank"/>
+                                        <field name="voyage_number"/>
+                                        <field name="vessel_name"/>
+                                        <field name="imo"/>
+                                    </group>
+                                </div>
+                            </div>
+                            <div class="vl"/>
+
+
+                            <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                            <!--                         row1-col2 -->
+                            <div class="row1-col2">
+
+                                <h1>
+                                    Section.2
+                                </h1>
+                                <group>
+                                    <field name="agent_Role" string="Agent Role"/>
+
+                                    <field name="requested_date"/>
+                                    <field name="port"/>
+                                    <field name="berth"/>
+                                    <field name="ETA"/>
+                                    <field name="ETD"/>
+                                </group>
+                            </div>
+                        </div>
+                        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                        <!--                            row2 -->
+                        <div class="row2">
+                            <hr/>
+
+                            <h1>
+                                Section.3
+                            </h1>
+                            <group>
+                                <field name="call_type" string="Call Type"/>
+                                <field name="currency"/>
+                                <field name="notes"/>
+                            </group>
+                        </div>
+                        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+                        <!--                            row3 notebook-->
+
+                        <notebook>
+                            <page string="PDA">
+                                <field name="product_id" widget="one2many">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="product_price"/>
+<!--                                        <field name="currenc"/>-->
+<!--                                        <field name="product_tmpl_id" string="Service"/>-->
+<!--                                        <field name="categ_id"/>-->
+<!--                                        <field name="description"/>-->
+<!--                                        <field name="lst_price"/>-->
+<!--                                        <field name="cost_currency_id"/>-->
+
+<!--                                        <field name="taxes_id"/>-->
+<!--                                        <field name="price_subtotal"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Follow Up">
+
+                                <field name="follow" widget="one2many">
+                                    <tree editable="bottom">
+                                        <field name="created_by"/>
+                                        <field name="follow_type"/>
+                                        <field name="start_date"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Documents">
+
+                            </page>
+                            <page  string="Other">
+
+                            </page>
+                        </notebook>
+                    </div>
+                </form>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- Top menu item -->
+        <menuitem name="Shipping" id="pan_marine.menu_root" sequence="1" web_icon="pan_marine,static/img/icon.png"/>
+
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- main menu -->
+        <menuitem name="Inquiry/Cancelled Jobs" id="pan_marine.menu_1_list" parent="pan_marine.menu_1"
+        />
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- first child  -->
+        <menuitem name="Create" id="pan_marine_inquiry1" parent="pan_marine.menu_1_list"
+                  action="inquiry_default_action"
+        />
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- second child -->
+        <menuitem name="Show all" id="pan_marine_inquiry2" parent="pan_marine.menu_1_list"
+                  action="inquiry_actions"/>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="vessel_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel.form</field>
+            <field name="model">pan_marine.vessel</field>
+            <field name="arch" type="xml">
+                <form string="Vessel">
+                    <sheet>
+                        <group>
+                            <field name="IMO"/>
+                            <field name="name"/>
+                            <field name="flag"/>
+                            <field name="vessel_type"/>
+                            <field name="year_built"/>
+                            <field name="dead_weight"/>
+                            <field name="gross_weight"/>
+                            <field name="operator_name"/>
+                            <field name="operator_country"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vessel_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel.tree</field>
+            <field name="model">pan_marine.vessel</field>
+            <field name="arch" type="xml">
+                <tree string="Vessel">
+                    <field name="IMO"/>
+                    <field name="name"/>
+                    <field name="flag"/>
+                    <field name="vessel_type"/>
+                    <field name="year_built"/>
+                    <field name="operator_name"/>
+                    <field name="operator_country"/>
+                    <field name="dead_weight"/>
+                    <field name="gross_weight"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vessel_search_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel.search</field>
+            <field name="model">pan_marine.vessel</field>
+            <field name="arch" type="xml">
+                <search string="Vessel">
+                    <field name="name"/>
+                    <group expand="1" string="Group By">
+
+                        <filter string="Example Field" name="name"
+                        />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="vessel_act_window" model="ir.actions.act_window">
+            <field name="name">Vessel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.vessel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Vessel.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Vessel" id="pan_marine_vessel1" sequence="1" parent="vessel_type_menu"
+                  action="vessel_act_window"/>
+
+    </data>
+</odoo>

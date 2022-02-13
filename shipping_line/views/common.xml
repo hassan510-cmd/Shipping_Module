@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="shipping_line_cargo_categ" name="Cargo Names" parent="shipping_line_master_categ"
+                  action="pan_marine.cargo_act_window"
+        />
+        <menuitem id="shipping_line_vessel_categ" name="Vessel Names" parent="shipping_line_master_categ"
+                  action="pan_marine.vessel_act_window"
+        />
+
+    </data>
+</odoo>

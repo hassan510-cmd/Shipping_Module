@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        link css sheet-->
+        <template id="assets_backend2" name="pan_marine assets2" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/pan_marine/static/src/css/pan_marine_port.css"/>
+            </xpath>
+        </template>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--form view-->
+        <record id="pan_marine_port_form_view" model="ir.ui.view">
+            <field name="name">pan_marine_port_form_view</field>
+            <field name="model">pan_marine.port</field>
+            <field name="arch" type="xml">
+                <form string="pan_marine_port_form">
+                    <sheet>
+                        <group>
+
+                            <field name="name" placeholder="Name"/>
+                            <field name="code" placeholder="Code"/>
+                            <field name="country" placeholder="Country"/>
+                            <field name="country_code" placeholder="Country Code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--tree view-->
+        <record id="pan_marine_port_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine_port_tree_view</field>
+            <field name="model">pan_marine.port</field>
+            <field name="arch" type="xml">
+                <tree string="Ports">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--search view-->
+<!--        <record id="pan_marine_port_search_view" model="ir.ui.view">-->
+<!--            <field name="name">pan_marine_port_search_view</field>-->
+<!--            <field name="model">pan_marine.port</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Ports">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="name" domain="[]"-->
+<!--                                context="{'group_by':'name'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--       default module action       -->
+        <record id="port_default_action" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.port</field>
+            <field name="view_mode">form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Port.
+                </p>
+            </field>
+        </record>
+
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!--       multi module action       -->
+        <record id="port_multi_action" model="ir.actions.act_window">
+
+            <field name="name">add new port</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.port</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Port.
+                </p>
+            </field>
+        </record>
+
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+
+
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- main menu -->
+        <menuitem id="pan_marine_port1" name="Ports" parent="pan_marine.menu2"/>
+
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- first child  -->
+        <menuitem id="pan_marine_port_create" name="Create" parent="pan_marine_port1" action="port_default_action"/>
+        <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+        <!-- second child  -->
+        <menuitem id="pan_marine_port_show" name="Show All" parent="pan_marine_port1" action="port_multi_action"/>
+    </data>
+</odoo>

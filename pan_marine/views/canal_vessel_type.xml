@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="canal_vessel_type_form_view" model="ir.ui.view">
+            <field name="name">canal_vessel_type_form_view</field>
+            <field name="model">pan_marine.canal_vessel_type</field>
+            <field name="arch" type="xml">
+                <form string="canal_vessel_type_form">
+                    <sheet>
+                        <group>
+                            <field name="type" string="Canal Type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="canal_vessel_type_act_window" model="ir.actions.act_window">
+            <field name="name">Canal Vessel Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.canal_vessel_type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="pan_marine_vessel_type2" name="Canal Vessels Types"
+                  parent="vessel_type_menu"
+                  sequence="4"
+                  action="canal_vessel_type_act_window"/>
+
+
+<!--        <record id="canal_vessel_type_form_inherit" model="ir.ui.view">-->
+<!--            <field name="name">pan_marine.canal_vessel_type.form</field>-->
+<!--            <field name="model">pan_marine.canal_vessel_type</field>-->
+<!--            <field name="inherit_id" ref="pan_marine.vessel_type_form_view"/>-->
+<!--            &lt;!&ndash;            <field name="priority" eval="8"/>&ndash;&gt;-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='type']" position="replace">-->
+<!--                    <field name="type" string="from inherited"/>-->
+<!--                </xpath>-->
+
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="canal_vessel_type_form_inherit_action" model="ir.actions.act_window">-->
+<!--            <field name="name">Canal Vessel Type</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">pan_marine.canal_vessel_type</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--        </record>-->
+<!--        <menuitem id="pan_marine_vessel_type2" name="Canal Vessels Types"-->
+<!--                  parent="vessel_type_menu"-->
+<!--                  action="canal_vessel_type_form_inherit_action"/>-->
+    </data>
+</odoo>

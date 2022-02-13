@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pan_marine_inquiry,access.pan_marine.inquiry,model_pan_marine_inquiry,,1,1,1,1
+access_pan_marine_port,access.pan_marine.port,model_pan_marine_port,,1,1,1,1
+access_pan_marine_vessel_type,access.pan_marine.vessel_type,model_pan_marine_vessel_type,,1,1,1,1
+access_pan_marine_vessel_operator,access.pan_marine.vessel_operator,model_pan_marine_vessel_operator,,1,1,1,1
+access_pan_marine_canal_vessel_type,access.pan_marine.canal_vessel_type,model_pan_marine_canal_vessel_type,,1,1,1,1
+access_pan_marine_vessel,access.pan_marine.vessel,model_pan_marine_vessel,,1,1,1,1
+access_pan_marine_cargo,access.pan_marine.cargo,model_pan_marine_cargo,,1,1,1,1
+access_pan_marine_cargo_rate,access.pan_marine.cargo_rate,model_pan_marine_cargo_rate,,1,1,1,1
+access_pan_marine_berth_cargo,access.pan_marine.berth_cargo,model_pan_marine_berth_cargo,,1,1,1,1
+access_pan_marine_berth,access.pan_marine.berth,model_pan_marine_berth,,1,1,1,1
+access_pan_marine_call,access.pan_marine.call,model_pan_marine_call,,1,1,1,1
+access_pan_marine_follow_up_type,access.pan_marine.follow_up_type,model_pan_marine_follow_up_type,,1,1,1,1
+access_pan_marine_follow_up,access.pan_marine.follow_up,model_pan_marine_follow_up,,1,1,1,1
+access_pan_marine_services_products,access.pan_marine.services_products,model_pan_marine_services_products,,1,1,1,1

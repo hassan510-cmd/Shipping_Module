@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="Agent_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.agent.form</field>
+            <field name="model">shipping_line.agent</field>
+            <field name="arch" type="xml">
+                <form string="Agent">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="header_image" widget="image"/>
+                            <field name="footer_image" widget="image"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="Agent_tree_view" model="ir.ui.view">
+            <field name="name">shipping_line.agent.tree</field>
+            <field name="model">shipping_line.agent</field>
+            <field name="arch" type="xml">
+                <tree string="Agent">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="Agent_search_view" model="ir.ui.view">
+            <field name="name">shipping_line.agent.search</field>
+            <field name="model">shipping_line.agent</field>
+            <field name="arch" type="xml">
+                <search string="Agent">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="Agent_kanban_view" model="ir.ui.view">
+            <field name="name">shipping_line.agent.kanban</field>
+            <field name="model">shipping_line.agent</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click card text-center shadow-sm mb-5 bg-body rounded-3 d-flex"
+                                 style="width:300px; border-radius: 20px;">
+                                <div class="card-header">
+                                    name:
+                                    <field name="name"/>
+                                </div>
+<!--                                <div class="card-body">-->
+<!--                                    <field name="header_image" widget="image"/>-->
+<!--                                </div>-->
+<!--                                <div class="card-footer text-muted border-warning ">-->
+<!--                                </div>-->
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="Agent_act_window" model="ir.actions.act_window">
+            <field name="name">Agent</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.agent</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Agent.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="Agent_menu1" name="Agent" parent="shipping_line_master_categ" action="Agent_act_window"
+                  sequence="1"/>
+
+    </data>
+</odoo>

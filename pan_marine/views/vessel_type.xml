@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="vessel_type_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_type.form</field>
+            <field name="model">pan_marine.vessel_type</field>
+            <field name="arch" type="xml">
+                <form string="Vessel Type">
+                    <sheet>
+                        <group>
+                            <field name="type" string="Type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vessel_type_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_type.tree</field>
+            <field name="model">pan_marine.vessel_type</field>
+            <field name="arch" type="xml">
+                <tree string="Vessel Type">
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vessel_type_search_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_type.search</field>
+            <field name="model">pan_marine.vessel_type</field>
+            <field name="arch" type="xml">
+                <search string="Vessel Type">
+                    <field name="type"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Type" name="type"
+                        />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="vessel_type_act_window" model="ir.actions.act_window">
+            <field name="name">Vessel Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.vessel_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Vessel Type.
+                </p>
+            </field>
+        </record>
+
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pan_marine_vessel_type1" name="Vessels Types"
+                  sequence="2"
+                  parent="vessel_type_menu"
+                  action="vessel_type_act_window"/>
+
+    </data>
+</odoo>

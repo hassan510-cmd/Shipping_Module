@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="shipping_line_root" name="Shipping Line" sequence="1"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="shipping_line_master_categ" name="Master Data" parent="shipping_line_root" sequence="2"/>
+        <menuitem id="shipping_line_agent_categ" name="Agent" parent="shipping_line_root" sequence="1"/>
+    </data>
+</odoo>

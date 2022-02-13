@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="voyage_sequence" model="ir.sequence">
+            <field name="name">voyage.seq</field>
+            <field name="code">code.voyage.seq</field>
+            <field name="prefix">VYG/</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="operation_sequence" model="ir.sequence">
+            <field name="name">operation.seq</field>
+            <field name="code">code.operation.seq</field>
+            <field name="prefix">OPR/</field>
+            <field name="padding">5</field>
+        </record>
+
+    </data>
+</odoo>

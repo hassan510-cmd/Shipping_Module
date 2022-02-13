@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="follow_up_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.follow_up.form</field>
+            <field name="model">pan_marine.follow_up</field>
+            <field name="arch" type="xml">
+                <form string="Follow Up">
+                    <sheet>
+                        <group>
+                            <field name="created_by"/>
+                            <field name="follow_type"/>
+                            <field name="start_date"/>
+                            <field name="remarks"/>
+                            <field name="rel_inquiry"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="follow_up_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.follow_up.tree</field>
+            <field name="model">pan_marine.follow_up</field>
+            <field name="arch" type="xml">
+                <tree string="Follow Up">
+                    <field name="created_by"/>
+                    <field name="follow_type"/>
+                    <field name="start_date"/>
+                    <field name="remarks"/>
+                    <field name="rel_inquiry"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="follow_up_search_view" model="ir.ui.view">-->
+<!--            <field name="name">pan_marine.follow_up.search</field>-->
+<!--            <field name="model">pan_marine.follow_up</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Follow Up">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="example_field"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="follow_up_act_window" model="ir.actions.act_window">
+            <field name="name">Follow Up</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.follow_up</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Follow Up.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Follow Up" id="follow_up_menu" parent="follow_up_type" action="follow_up_act_window"/>
+
+    </data>
+</odoo>

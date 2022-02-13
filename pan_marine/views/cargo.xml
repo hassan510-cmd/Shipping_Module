@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cargo_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.cargo.form</field>
+            <field name="model">pan_marine.cargo</field>
+            <field name="arch" type="xml">
+                <form string="Cargo">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cargo_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.cargo.tree</field>
+            <field name="model">pan_marine.cargo</field>
+            <field name="arch" type="xml">
+                <tree string="Cargo">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="cargo_search_view" model="ir.ui.view">-->
+<!--            <field name="name">pan_marine.cargo.search</field>-->
+<!--            <field name="model">pan_marine.cargo</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Cargo">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="name" />-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="cargo_act_window" model="ir.actions.act_window">
+            <field name="name">Cargo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.cargo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Cargo.
+                </p>
+            </field>
+        </record>
+
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="pan_marine_cargo" name="Cargo Names" parent="cargo_menu" action="cargo_act_window" sequence="1"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="services_products_form_inherit" model="ir.ui.view">
+            <field name="name">pan_marine.services_products.form</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="pan_marine_services_products" name="Shipping Services - Products" parent="pan_marine.menu_root"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pan_marine_services_products1" name="Services - Products" parent="pan_marine_services_products"
+                  action="account.action_move_out_invoice_type" sequence="1"/>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Top menu item -->
+    <menuitem name="Shipping" id="pan_marine.menu_root"
+              sequence="1"
+    />
+    <!--      ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ -->
+    <!-- menu categories -->
+    <menuitem name="Shipping" id="pan_marine.menu_1" parent="pan_marine.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Master Data" id="pan_marine.menu2" parent="pan_marine.menu_root"/>
+
+    <menuitem name="Vessels" id="vessel_type_menu" parent="pan_marine.menu2"/>
+    <menuitem name="Cargo" id="cargo_menu" parent="pan_marine.menu2"/>
+    <menuitem name="Berth" id="berth_menu" parent="pan_marine.menu2"/>
+    <menuitem id="follow_up_type" name="Follow" parent="pan_marine.menu2"/>
+
+</odoo>

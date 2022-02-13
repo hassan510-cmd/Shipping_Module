@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="follow_up_type_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.follow_up_type.form</field>
+            <field name="model">pan_marine.follow_up_type</field>
+            <field name="arch" type="xml">
+                <form string="Follow Up Type">
+                    <sheet>
+                        <group>
+                            <field name="type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="follow_up_type_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.follow_up_type.tree</field>
+            <field name="model">pan_marine.follow_up_type</field>
+            <field name="arch" type="xml">
+                <tree string="Follow Up Type">
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="follow_up_type_search_view" model="ir.ui.view">-->
+<!--            <field name="name">pan_marine.follow_up_type.search</field>-->
+<!--            <field name="model">pan_marine.follow_up_type</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Follow Up Type">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="type"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="follow_up_type_act_window" model="ir.actions.act_window">
+            <field name="name">Follow Up Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.follow_up_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Follow Up Type.
+                </p>
+            </field>
+        </record>
+        <menuitem name="Follow Up Type" id="follow_up_type_menu1" parent="follow_up_type" action="follow_up_type_act_window"/>
+
+    </data>
+</odoo>

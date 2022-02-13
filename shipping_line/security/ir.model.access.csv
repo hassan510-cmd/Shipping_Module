@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shipping_line_agent,access_shipping_line.agent,model_shipping_line_agent,,1,1,1,1
+access_shipping_line_port_terminal,access_shipping_line.port_terminal,model_shipping_line_port_terminal,,1,1,1,1
+access_shipping_line_voyage,access_shipping_line.voyage,model_shipping_line_voyage,,1,1,1,1
+access_shipping_line_operation,access_shipping_line.operation,model_shipping_line_operation,,1,1,1,1
+access_shipping_line_operation_type,access_shipping_line.operation_type,model_shipping_line_operation_type,,1,1,1,1
+access_shipping_line_freight,access_shipping_line.freight,model_shipping_line_freight,,1,1,1,1
+access_shipping_line_house,access_shipping_line.house,model_shipping_line_house,,1,1,1,1

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="freight_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.freight.form</field>
+            <field name="model">shipping_line.freight</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <form string="Freight">
+                    <sheet>
+                        <group>
+                                <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="freight_form_view2" model="ir.ui.view">
+            <field name="name">shipping_line.freight.form</field>
+            <field name="model">shipping_line.freight</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <form string="Freight">
+                    <sheet>
+                        <group>
+                                <field name="name" string="new names"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="freight_tree_view" model="ir.ui.view">
+            <field name="name">shipping_line.freight.tree</field>
+            <field name="model">shipping_line.freight</field>
+            <field name="arch" type="xml">
+                <tree string="Freight">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="freight_search_view" model="ir.ui.view">
+            <field name="name">shipping_line.freight.search</field>
+            <field name="model">shipping_line.freight</field>
+            <field name="arch" type="xml">
+                <search string="Freight">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="name" domain="[]"
+                                context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="freight_act_window" model="ir.actions.act_window">
+            <field name="name">Freight</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.freight</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Freight.
+                </p>
+            </field>
+        </record>
+        <record id="freight_act_window2" model="ir.actions.act_window">
+            <field name="name">Freight</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.freight</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids"
+            eval="[(5,0,0),
+            (0,0,{'sequence':2,'view_mode':'form','view_id':ref('freight_form_view2')})]"
+            />
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Freight.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Freight" id="freight_menu1" parent="shipping_line_master_categ" action="freight_act_window"/>
+        <menuitem name="Freight2" id="freight_menu2" parent="shipping_line_master_categ" action="freight_act_window2"/>
+
+    </data>
+</odoo>

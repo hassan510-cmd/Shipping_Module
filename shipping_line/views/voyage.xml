@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="voyage_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.voyage.form</field>
+            <field name="model">shipping_line.voyage</field>
+            <field name="arch" type="xml">
+                <form string="Voyage">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="number"/>
+                                <field name="shipping_line"/>
+                                <field name="agent"/>
+                                <field name="arrival_date"/>
+                                <field name="discharge_date"/>
+                                <field name="storage_free_days"/>
+                                <field name="demurrage_free_days"/>
+                                <field name="total_gross_weight"/>
+                                <field name="total_no_of_containers"/>
+                            </group>
+                            <group>
+                                <field name="discharge_port" required="context.get('hide_port_of_loading')"
+                                       invisible="context.get('hide_discharge_port')"/>
+                                <field name="terminal_port" required="context.get('hide_port_terminal_of_loading')"
+                                       invisible="context.get('hide_terminal_port')"/>
+                                <!--                                -->
+                                <field name="port_of_loading" required="context.get('hide_discharge_port')"
+                                       invisible="context.get('hide_port_of_loading')"/>
+                                <field name="port_terminal_of_loading" required="context.get('hide_discharge_port')"
+                                       invisible="context.get('hide_port_terminal_of_loading')"/>
+                                <!--                                -->
+                                <field name="rel_vessel"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+
+<!--                            <page string="Operation">-->
+<!--                                <field name="rel_house">-->
+<!--                                    <tree>-->
+<!--                                        <field name="operation_serial"/>-->
+<!--                                        <field name="house_bl"/>-->
+<!--                                        <field name="operation_type"/>-->
+<!--                                        <field name="port_of_discharge"/>-->
+<!--                                        <field name="customer"/>-->
+<!--                                        <field name="port_terminal_of_discharge"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+                            <page string="House">
+                                <field name="rel_operation" context="{'form_view_ref': 'shipping_line.basic_operation_form_view'}">
+                                    <tree>
+                                        <field name="operation_seq"/>
+                                        <field name="house_bl"/>
+                                        <field name="operation_type"/>
+                                        <field name="port_of_discharge"/>
+                                        <field name="customer"/>
+                                        <field name="port_terminal_of_discharge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="voyage_tree_view" model="ir.ui.view">
+            <field name="name">shipping_line.voyage.tree</field>
+            <field name="model">shipping_line.voyage</field>
+            <field name="arch" type="xml">
+                <tree string="Voyage">
+                    <field name="voyage_seq"/>
+                    <field name="number"/>
+                    <field name="shipping_line"/>
+                    <field name="agent"/>
+                    <field name="arrival_date"/>
+                    <field name="discharge_date"/>
+                    <field name="storage_free_days"/>
+                    <field name="demurrage_free_days"/>
+                    <field name="total_gross_weight"/>
+                    <field name="total_no_of_containers"/>
+                    <field name="discharge_port"
+                           invisible="context.get('hide_discharge_port')"/>
+                    <field name="terminal_port"
+                           invisible="context.get('hide_terminal_port')"/>
+                    <!--                                -->
+                    <field name="port_of_loading"
+                           invisible="context.get('hide_port_of_loading')"/>
+                    <field name="port_terminal_of_loading"
+                           invisible="context.get('hide_port_terminal_of_loading')"/>
+                    <!--                                -->
+                    <field name="rel_vessel" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="voyage_search_view" model="ir.ui.view">
+            <field name="name">shipping_line.voyage.search</field>
+            <field name="model">shipping_line.voyage</field>
+            <field name="arch" type="xml">
+                <search string="Voyage">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="number" domain="[]"
+                                context="{'group_by':'number'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="import_voyage_act_window" model="ir.actions.act_window">
+            <field name="name">Import Voyage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.voyage</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'hide_port_of_loading':1,'hide_port_terminal_of_loading':1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Voyage.
+                </p>
+            </field>
+        </record>
+        <record id="export_voyage_act_window" model="ir.actions.act_window">
+            <field name="name">Export Voyage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.voyage</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'hide_discharge_port':1,'hide_terminal_port':1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Voyage.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Import Voyage" id="voyage_menu1" parent="shipping_line_agent_categ"
+                  action="import_voyage_act_window"/>
+        <menuitem name="Export Voyage" id="voyage_menu2" parent="shipping_line_agent_categ"
+                  action="export_voyage_act_window"/>
+
+    </data>
+</odoo>

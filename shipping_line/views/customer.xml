@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="shipping_line_customer_categ" name="Customers" parent="shipping_line_agent_categ"
+                  action="account.res_partner_action_customer" />
+    </data>
+</odoo>

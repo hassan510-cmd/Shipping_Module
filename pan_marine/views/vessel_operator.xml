@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="vessel_operator_form_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_operator.form</field>
+            <field name="model">pan_marine.vessel_operator</field>
+            <field name="arch" type="xml">
+                <form string="Vessel Operators">
+                    <sheet>
+                            <group>
+                                <field name="name"/>
+                                <field name="country"/>
+
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vessel_operator_tree_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_operator.tree</field>
+            <field name="model">pan_marine.vessel_operator</field>
+            <field name="arch" type="xml">
+                <tree string="Vessel Operators">
+                    <field name="name"/>
+                    <field name="country"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vessel_operator_search_view" model="ir.ui.view">
+            <field name="name">pan_marine.vessel_operator.search</field>
+            <field name="model">pan_marine.vessel_operator</field>
+            <field name="arch" type="xml">
+                <search string="Vessel Operators">
+                    <field name="name"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="name"
+                        />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="vessel_operator_act_window" model="ir.actions.act_window">
+            <field name="name">Vessel Operators</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pan_marine.vessel_operator</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Vessel Operators.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="pan_marine_vessel_operator1" name="Vessel Operator" parent="vessel_type_menu"
+                  action="vessel_operator_act_window"
+                  sequence="3"
+        />
+
+    </data>
+</odoo>

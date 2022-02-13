@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="operation_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.operation.form</field>
+            <field name="model">shipping_line.operation</field>
+            <field name="arch" type="xml">
+                <form string="Operation">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,sent,operation,OC,FC"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="operation_type"/>
+                                <field name="customer"/>
+                                <field name="voyage"/>
+                                <!--                                <field name="rel_voyage"/>-->
+                                <!--                                <field name="rel_voyage_op"/>-->
+                                <field name="house_bl"/>
+                                <field name="port_of_loading"/>
+                                <field name="port_of_discharge"/>
+                                <field name="port_terminal_of_loading"/>
+                                <field name="port_terminal_of_discharge"/>
+                                <field name="deliver_data"/>
+                                <field name="empty_return_date"/>
+                                <field name="storage_free_days"/>
+                                <field name="demurrage_free_days"/>
+                                <field name="discharge_type"/>
+                                <field name="rel_agent"/>
+                                <field name="freight"/>
+                                <field name="actual_delivery_date"/>
+                            </group>
+                            <group>
+                                <field name="requested_date"/>
+                                <field name="general_description"/>
+                                <field name="total_no_of_containers"/>
+                                <field name="TUE"/>
+                                <field name="total_no_of_packages"/>
+                                <field name="type_of_packages"/>
+                                <field name="total_gross_weight"/>
+                                <field name="total_chargeable_weight"/>
+                                <field name="total_volume"/>
+                                <field name="total_freight_ton"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Refund Dates"></page>
+                            <page string="Involved Parties"></page>
+                            <page string="Shipper"></page>
+                            <page string="Cargo"></page>
+                            <page string="Activity"></page>
+                            <page string="Services"></page>
+                            <page string="Events"></page>
+                            <page string="Documents"></page>
+                            <page string="Custody"></page>
+                            <page string="Other"></page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="basic_operation_form_view" model="ir.ui.view">
+            <field name="name">shipping_line.operation.form</field>
+            <field name="model">shipping_line.operation</field>
+            <field name="arch" type="xml">
+                <form string="Operation">
+                    <sheet>
+                        <group>
+                            <field name="house_bl"/>
+                            <field name="operation_type"/>
+                            <field name="port_of_discharge"/>
+                            <field name="port_terminal_of_discharge"/>
+                            <field name="customer"/>
+                            <!--                                <field name="rel_voyage"/>-->
+                            <!--                                <field name="rel_voyage_op"/>-->
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="operation_tree_view" model="ir.ui.view">
+            <field name="name">shipping_line.operation.tree</field>
+            <field name="model">shipping_line.operation</field>
+            <field name="arch" type="xml">
+                <tree string="Operation">
+                    <field name="operation_seq"/>
+                    <field name="house_bl"/>
+                    <field name="deliver_data"/>
+                    <field name="empty_return_date"/>
+                    <field name="actual_delivery_date"/>
+                    <field name="customer"/>
+                    <field name="voyage"/>
+                    <field name="rel_agent"/>
+                    <field name="operation_type"/>
+                    <!--                    <field name="port_of_loading"/>-->
+                    <!--                    <field name="port_of_discharge"/>-->
+                    <!--                    <field name="port_terminal_of_loading"/>-->
+                    <!--                    <field name="port_terminal_of_discharge"/>-->
+                    <!--                    <field name="storage_free_days"/>-->
+                    <!--                    <field name="demurrage_free_days"/>-->
+                    <!--                    <field name="discharge_type"/>-->
+                    <!--                    <field name="freight"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="operation_search_view" model="ir.ui.view">
+            <field name="name">shipping_line.operation.search</field>
+            <field name="model">shipping_line.operation</field>
+            <field name="arch" type="xml">
+                <search string="Operation">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="customer"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="operation_act_window" model="ir.actions.act_window">
+            <field name="name">Operation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.operation</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Operation.
+                </p>
+            </field>
+        </record>
+        <record id="operation_type_import_act_window" model="ir.actions.act_window">
+            <field name="name">Operation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.operation</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('operation_type','=','import')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Operation of type import.
+                </p>
+            </field>
+        </record>
+        <record id="operation_type_export_act_window" model="ir.actions.act_window">
+            <field name="name">Operation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping_line.operation</field>
+            <field name="view_mode">tree,form</field>
+            <field name='domain'>[('operation_type','=','export')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Operation of type export.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Operation" id="operation_menu" parent="shipping_line_agent_categ"
+                  action="operation_act_window"/>
+        <menuitem name="Import Operation" id="operation_menu1" parent="shipping_line_agent_categ"
+                  action="operation_type_import_act_window"/>
+        <menuitem name="Export Operation" id="operation_menu2" parent="shipping_line_agent_categ"
+                  action="operation_type_export_act_window"/>
+
+    </data>
+</odoo>
